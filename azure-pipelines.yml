@@ -17,7 +17,7 @@ steps:
   displayName: 'dotnet build'
   inputs:
     projects: '**/*.csproj'
-    arguments: '--no-restore --configuration $(BuildConfiguration)'
+    arguments: '--configuration $(BuildConfiguration)'
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
