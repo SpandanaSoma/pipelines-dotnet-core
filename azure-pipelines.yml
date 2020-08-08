@@ -11,8 +11,12 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  bashvar: 'Demo'
 
 steps:
+- script: echo $(bashvar)
+  displayName: 'About'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 #- task: DotNetCoreCLI@2
@@ -30,4 +34,7 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
+
+- bash: echo "Build Done!"
+  displayName: 'Proceeding to release'
 
